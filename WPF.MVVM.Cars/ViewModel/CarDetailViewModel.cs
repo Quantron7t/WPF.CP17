@@ -5,14 +5,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WPF.Cars.DAL.Model;
+using WPF.MVVM.Cars.Utility;
 
 namespace WPF.MVVM.Cars.ViewModel
 {
-    class CarDetailViewModel: INotifyPropertyChanged
-    {
-        private Car _SelectedCar;
-
+    public class CarDetailViewModel: INotifyPropertyChanged
+    {        
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public CarDetailViewModel()
+        {
+            Messenger.Default.Register<Car>(this, OnCarReceived);
+        }
+
+        private void OnCarReceived(Car car)
+        {
+            SelectedCar = car;
+        }
+
+        private Car _SelectedCar;
 
         public Car SelectedCar
         {

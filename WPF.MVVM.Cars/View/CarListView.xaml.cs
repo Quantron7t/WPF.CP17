@@ -37,16 +37,16 @@ namespace WPF.MVVM.Cars.View
         //    CarListControl.ItemsSource = carDataService.GetCars();
         //}
 
-        private void CarListControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //selectedCar = e.AddedItems[0] as Car;
+        //private void CarListControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //selectedCar = e.AddedItems[0] as Car;
 
-            //if (selectedCar != null)
-            //{
-            //    CarDetailView carDetailView = new CarDetailView();
-            //    carDetailView.SelectedCar = selectedCar;
-            //    carDetailView.ShowDialog();
-            //}
-        }
+        //    //if (selectedCar != null)
+        //    //{
+        //    //    CarDetailView carDetailView = new CarDetailView();
+        //    //    carDetailView.SelectedCar = selectedCar;
+        //    //    carDetailView.ShowDialog();
+        //    //}
+        //}
     }
 }

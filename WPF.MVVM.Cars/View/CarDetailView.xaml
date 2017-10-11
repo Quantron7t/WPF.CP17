@@ -5,29 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF.MVVM.Cars.View"
         mc:Ignorable="d"
-        Title="CarDetailView" Height="400" Width="600">
+        Title="CarDetailView" Height="400" Width="600"
+        DataContext="{Binding Source={StaticResource mainViewModelLocator},Path=CarDetailViewModel}">
     <Grid>
-        <StackPanel Width="auto" HorizontalAlignment="Center">
-            <WrapPanel>
-                <Label Content="Car Id : "></Label>
-                <Label Content="{Binding Id}"></Label>
-            </WrapPanel>
-            <WrapPanel>
-                <Label Content="Name : "></Label>
-                <TextBox Text="{Binding Name, Mode=OneWay}" Width="300"></TextBox>
-            </WrapPanel>
-            <WrapPanel>
-                <Label Content="Cost : "></Label>
-                <TextBox Text="{Binding Price, Mode=OneWay}" Width="300"></TextBox>
-            </WrapPanel>
-            <WrapPanel>
-                <Label Content="Country of Origin : "></Label>
-                <TextBox Text="{Binding Country, Mode=OneWay}" Width="300"></TextBox>
-            </WrapPanel>
-            <WrapPanel>
-                <Label Content="Type : "></Label>
-                <TextBox Text="{Binding Type, Mode=OneWay}" Width="300"></TextBox>
-            </WrapPanel>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Car Id : "></Label>
+        <Label Grid.Column="1" Grid.Row="0" Content="{Binding SelectedCar.Id}" Width="300"></Label>
+        <Label Grid.Column="0" Grid.Row="1" Content="Name : "></Label>
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SelectedCar.Name, Mode=TwoWay}" Width="300"></TextBox>
+        <Label Grid.Column="0" Grid.Row="2" Content="Cost : "></Label>
+        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding SelectedCar.Price, Mode=TwoWay}" Width="300"></TextBox>
+        <Label Grid.Column="0" Grid.Row="3" Content="Country of Origin : "></Label>
+        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding SelectedCar.Country, Mode=TwoWay}" Width="300"></TextBox>
+        <Label Grid.Column="0" Grid.Row="4" Content="Car Type: "></Label>
+        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding SelectedCar.Type, Mode=TwoWay}" Width="300"></TextBox>
     </Grid>
 </Window>

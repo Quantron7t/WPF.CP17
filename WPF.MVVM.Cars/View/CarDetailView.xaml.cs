@@ -20,18 +20,18 @@ namespace WPF.MVVM.Cars.View
     /// </summary>
     public partial class CarDetailView : Window
     {
-        public Car SelectedCar{ get; set; }
+        //public Car SelectedCar{ get; set; }
 
         public CarDetailView()
         {
             InitializeComponent();
-            this.Loaded += CoffeeDetailView_Loaded;
+            //this.Loaded += CoffeeDetailView_Loaded;
         }
 
         void CoffeeDetailView_Loaded(object sender, RoutedEventArgs e)
         {
             //LoadData();
-            this.DataContext = SelectedCar;
+            //this.DataContext = SelectedCar;
         }
 
 

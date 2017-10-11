@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:WPF.MVVM.Cars.View"
         mc:Ignorable="d"
         Title="CarListView" Height="600" Width="400"
@@ -12,8 +13,8 @@
         <Grid Margin="5">
             <Grid.ColumnDefinitions>                
                 <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <ListView Grid.Column="0" Name="CarListControl" ItemsSource="{Binding Cars}" SelectionChanged="CarListControl_SelectionChanged">
+            </Grid.ColumnDefinitions>            
+            <ListView Grid.Column="0" Name="CarListControl" ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}">               
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel Width="auto">
