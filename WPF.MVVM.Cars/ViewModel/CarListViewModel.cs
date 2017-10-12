@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WPF.Cars.DAL.Model;
+using WPF.MVVM.Cars.Messages;
 using WPF.MVVM.Cars.Services;
 using WPF.MVVM.Cars.Utility;
 
@@ -27,6 +29,14 @@ namespace WPF.MVVM.Cars.ViewModel
             LoadData();
             //attaching command
             LoadCommand();
+            //register for list data changes/updates
+            Messenger.Default.Register<UpdateListMessage>(this,OnUpdateListMessageReceived);
+        }
+
+        private void OnUpdateListMessageReceived(UpdateListMessage obj)
+        {
+            LoadData();
+            dialogService.CloseCarDetailView();
         }
 
         private void LoadCommand()
@@ -63,9 +73,9 @@ namespace WPF.MVVM.Cars.ViewModel
         }
 
 
-        private List<Car> _Cars;
+        private ObservableCollection<Car> _Cars;
 
-        public List<Car> Cars
+        public ObservableCollection<Car> Cars
         {
             get { return _Cars; }
             set
@@ -85,7 +95,7 @@ namespace WPF.MVVM.Cars.ViewModel
 
         private void LoadData()
         {
-            Cars = carDataService.GetCars();
+            Cars = new ObservableCollection<Car>(carDataService.GetCars());
         }
     }
 }
