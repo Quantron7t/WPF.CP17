@@ -10,7 +10,7 @@
         DataContext="{Binding Source={StaticResource mainViewModelLocator},Path=CarListViewModel}">
     <ScrollViewer>
 
-        <Grid Margin="5">
+        <Grid Name="Root" Margin="5">
             <Grid.ColumnDefinitions>                
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>            
@@ -19,6 +19,7 @@
                     <DataTemplate>
                         <WrapPanel Width="auto">
                             <Label Content="{Binding Name}"></Label>
+                            <Button Width="35" Content="View" Command="{Binding CarListViewModel.ViewCommand, Source={StaticResource mainViewModelLocator}}" CommandParameter="{Binding Mode=OneWay}"></Button>
                         </WrapPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

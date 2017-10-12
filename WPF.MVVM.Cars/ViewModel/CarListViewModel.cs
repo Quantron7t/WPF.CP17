@@ -41,7 +41,7 @@ namespace WPF.MVVM.Cars.ViewModel
 
         private void ViewCar(object obj)
         {
-            Messenger.Default.Send<Car>(SelectedCar);
+            Messenger.Default.Send<Car>((Car)obj);
             dialogService.ShowCarDetailView();
         }
 
@@ -57,8 +57,8 @@ namespace WPF.MVVM.Cars.ViewModel
             {
                 _SelectedCar = value;
                 RaisePropertyChanged("SelectedCar");
-                Messenger.Default.Send<Car>(SelectedCar);
-                dialogService.ShowCarDetailView();
+                //Messenger.Default.Send<Car>(SelectedCar);
+                //dialogService.ShowCarDetailView();
             }
         }
 
